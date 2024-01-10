@@ -1,29 +1,46 @@
+// document.addEventListener('DOMContentLoaded', function() {
+//     const questions = document.querySelectorAll('.question');
+
+//     questions.forEach(question => {
+//         const h2 = question.querySelector('h2');
+//         const plusIcon = h2.querySelector('.plus-icon');
+//         const minusIcon = h2.querySelector('.minus-icon');
+//         const answer = question.querySelector('p');
+
+//         h2.addEventListener('click', () => {
+//             if (answer.style.display === 'block') {
+//                 answer.style.display = 'none';
+//                 plusIcon.style.display = 'inline-block';
+//                 minusIcon.style.display = 'none';
+//             } else {
+//                 answer.style.display = 'block';
+//                 plusIcon.style.display = 'none';
+//                 minusIcon.style.display = 'inline-block';
+//             }
+//         });
+//     });
+// });
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Your JavaScript code here
-
-
     const questions = document.querySelectorAll('.question');
-
+  
     questions.forEach(question => {
-    const plusIcon = question.querySelector('.plus-icon');
-    const minusIcon = question.querySelector('.minus-icon');
-    const answer = question.querySelector('p');
-
-    plusIcon.addEventListener('click', () => {
-        // Toggle visibility of answer paragraph
-        answer.style.display = 'block';
-        // Toggle visibility of plus and minus icons
-        plusIcon.style.display = 'none';
-        minusIcon.style.display = 'inline-block';
+      const h2 = question.querySelector('h2');
+      const plusIcon = h2.querySelector('.plus-icon');
+      const minusIcon = h2.querySelector('.minus-icon');
+      const answer = question.querySelector('.answer');
+  
+      h2.addEventListener('click', () => {
+        if (answer.classList.contains('active')) {
+          answer.classList.remove('active');
+          plusIcon.style.display = 'inline-block';
+          minusIcon.style.display = 'none';
+        } else {
+          answer.classList.add('active');
+          plusIcon.style.display = 'none';
+          minusIcon.style.display = 'inline-block';
+        }
+      });
     });
-
-    minusIcon.addEventListener('click', () => {
-        // Toggle visibility of answer paragraph
-            answer.style.display = 'none';
-        // Toggle visibility of plus and minus icons
-        plusIcon.style.display = 'inline-block';
-        minusIcon.style.display = 'none';
-        });
-    });
-
-});
+  });
+  
